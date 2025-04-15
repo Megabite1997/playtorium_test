@@ -1,24 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { applyDiscounts } from "./utils/discountUtils";
 import { DiscountCampaign, Item } from "./types";
+import items from "./data/items.json";
+import campaigns from "./data/campaigns.json";
 
 const App: React.FC = () => {
   const [finalPrice, setFinalPrice] = useState<number | null>(null);
 
-  const items: Item[] = [
-    { name: "T-Shirt", price: 350, category: "Clothing" },
-    { name: "Hat", price: 250, category: "Accessories" },
-    { name: "Belt", price: 230, category: "Accessories" },
-  ];
-
-  const campaigns: DiscountCampaign[] = [
-    { type: "Fixed", category: "Coupon", amount: 50 },
-    { type: "Points", category: "On Top", points: 68 },
-    { type: "Seasonal", category: "Seasonal", every: 300, discount: 40 },
-  ];
-
   useEffect(() => {
-    const price = applyDiscounts(items, campaigns);
+    const typedItems = items as Item[];
+    const typedCampaigns = campaigns as DiscountCampaign[];
+    const price = applyDiscounts(typedItems, typedCampaigns);
     setFinalPrice(price);
   }, []);
 
