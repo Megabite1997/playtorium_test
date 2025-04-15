@@ -1,0 +1,5 @@
+[
+  { "type": "Fixed", "category": "Coupon", "amount": 50 },
+  { "type": "Points", "category": "On Top", "points": 68 },
+  { "type": "Seasonal", "category": "Seasonal", "every": 300, "discount": 40 }
+]
